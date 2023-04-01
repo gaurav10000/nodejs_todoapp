@@ -6,6 +6,7 @@ import { config } from "dotenv";
 import cookieParser from "cookie-parser";
 import { errorMiddleware } from "./middlewares/error.js";
 import cors from "cors";
+import ejs from "ejs";
 
 export const app = express();
 
@@ -32,7 +33,8 @@ app.use("/api/v1/task", taskRouter)
 
 
 app.get("/", (req, res) => {
-  res.send("This is the Home Page");
+  // res.send("This is the Home Page");
+  res.render("index.ejs")
 });
 
 app.use( errorMiddleware )
